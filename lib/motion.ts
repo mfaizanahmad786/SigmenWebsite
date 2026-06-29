@@ -120,3 +120,20 @@ export const staggerContainer: Variants = {
     },
   },
 };
+
+export const perspectiveFoldInView: Variants = {
+  hidden: {
+    opacity: 0,
+    rotateX: 75,
+    y: 50,
+  },
+  visible: {
+    opacity: 1,
+    rotateX: 0,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
