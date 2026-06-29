@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { SmoothScroll } from "@/components/layout/smooth-scroll";
 import { fontVariables } from "@/lib/fonts";
 import { siteConfig } from "@/constants/site";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -18,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${fontVariables} h-full`}>
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }
