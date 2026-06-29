@@ -48,13 +48,13 @@ function ServiceNumber({
 
 function ServiceImage({ service }: { service: Service }) {
   return (
-    <div className="relative h-[220px] w-[150px] overflow-hidden rounded-[18px] md:h-[260px] md:w-[190px] md:rounded-[20px] lg:h-[280px] lg:w-[210px]">
+    <div className="relative h-[65vh] w-[48vh] max-w-[min(48vh,92vw)] overflow-hidden rounded-t-[20px] md:rounded-t-[24px]">
       <Image
         src={service.image}
         alt={service.title}
         fill
         className="object-cover"
-        sizes="210px"
+        sizes="(max-width: 768px) 92vw, 48vh"
       />
     </div>
   );
@@ -65,7 +65,7 @@ export function ServiceSlide({ service, index }: ServiceSlideProps) {
 
   return (
     <div className="mx-auto grid w-full max-w-max grid-cols-1 items-center gap-10 px-5 md:grid-cols-[1fr_auto_1fr] md:gap-8 md:px-8 lg:gap-12 lg:px-[30px]">
-      <div className="hidden min-h-[280px] md:flex md:items-center md:justify-start">
+      <div className="hidden min-h-[65vh] md:flex md:items-center md:justify-start">
         {isEven ? (
           <ServiceText service={service} />
         ) : (
@@ -77,7 +77,7 @@ export function ServiceSlide({ service, index }: ServiceSlideProps) {
         <ServiceImage service={service} />
       </div>
 
-      <div className="hidden min-h-[280px] md:flex md:items-center md:justify-end">
+      <div className="hidden min-h-[65vh] md:flex md:items-center md:justify-end">
         {isEven ? (
           <ServiceNumber id={service.id} className="text-right" />
         ) : (
