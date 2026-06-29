@@ -29,6 +29,39 @@ export const headingBlurFade: Variants = {
   },
 };
 
+export const headingBlurFadeInView: Variants = {
+  hidden: { opacity: 0, filter: "blur(14px)" },
+  visible: {
+    opacity: 1,
+    filter: "blur(0px)",
+    transition: { duration: 1.1, ease: smoothEase },
+  },
+};
+
+export const fadeInInView: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.8, ease: smoothEase, delay: 0.15 },
+  },
+};
+
+export const slideFromBottomInView: Variants = {
+  hidden: { opacity: 0, y: 56 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: smoothEase },
+  },
+};
+
+export const slideFromBottomStagger: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12, delayChildren: 0.05 },
+  },
+};
+
 export const slideFromLeft: Variants = {
   hidden: { opacity: 0, x: -56 },
   visible: {
