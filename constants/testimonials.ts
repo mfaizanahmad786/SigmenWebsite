@@ -1,18 +1,26 @@
+import bahriaUniversityLogo from "../images/testimonialLogos/bahria-university-logo.png";
+import britishCouncilLogo from "../images/testimonialLogos/britishCouncil.png";
+import statebankLogo from "../images/testimonialLogos/statebank.svg";
+import unhcrLogo from "../images/testimonialLogos/unhcr.png";
+
 export const clientLogos = [
   {
     name: "Bahria University",
-    src: "/images/testimonialLogos/bahria-university-logo.png",
+    src: bahriaUniversityLogo,
   },
   {
     name: "British Council",
-    src: "/images/testimonialLogos/britishCouncil.png",
+    src: britishCouncilLogo,
   },
   {
     name: "State Bank of Pakistan",
-    src: "/images/testimonialLogos/statebank.svg",
+    src: statebankLogo,
   },
   {
     name: "UNHCR",
-    src: "/images/testimonialLogos/unhcr.png",
+    src: unhcrLogo,
   },
 ] as const;
+
+/** Seconds for one full logo marquee loop — lower = faster */
+export const LOGO_MARQUEE_DURATION = 50;

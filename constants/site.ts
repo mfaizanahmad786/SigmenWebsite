@@ -4,9 +4,9 @@ export const siteConfig = {
     "Reliable, affordable, and safe elevator and lift solutions for homes, offices, and commercial spaces — delivered by trained and certified professionals.",
   url: "https://sigmen.com",
   contact: {
-    phone: "",
-    email: "",
-    address: "",
+    phone: "+92 (21) 555-0147",
+    email: "info@sigmen.com",
+    address: "123 Business Avenue, Karachi, Pakistan",
   },
   nav: [
     { label: "Home", href: "/" },

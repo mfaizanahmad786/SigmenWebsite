@@ -67,3 +67,20 @@
     @apply font-heading text-primary;
   }
 }
+
+@layer components {
+  @keyframes logo-marquee-scroll {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+
+    to {
+      transform: translate3d(calc(var(--logo-marquee-offset) * -1), 0, 0);
+    }
+  }
+
+  .logo-marquee {
+    animation: logo-marquee-scroll linear infinite;
+    will-change: transform;
+  }
+}
