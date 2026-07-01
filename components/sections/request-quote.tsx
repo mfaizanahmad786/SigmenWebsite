@@ -107,7 +107,7 @@ export function RequestQuote() {
       <div className="mx-auto grid max-w-max gap-12 px-5 md:px-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16 lg:px-[30px]">
         <div className="flex flex-col gap-8 lg:gap-10">
           <div>
-            <p className="font-mono text-sm font-medium uppercase tracking-wide">
+            <p className="font-mono text-xl font-bold uppercase tracking-wide">
               <span className="text-accent">05.</span>{" "}
               <span className="text-primary">Contact us</span>
             </p>

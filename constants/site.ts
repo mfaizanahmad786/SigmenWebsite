@@ -14,4 +14,18 @@ export const siteConfig = {
     { label: "Essentials", href: "/essentials", hasDropdown: true },
     { label: "Blogs", href: "/blog" },
   ],
+  footerLinks: [
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about" },
+    { label: "Services", href: "/#services" },
+    { label: "Contact", href: "/#contact" },
+  ],
+  social: [
+    { label: "Facebook", href: "https://facebook.com", icon: "facebook" },
+    { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
+    { label: "X", href: "https://x.com", icon: "x" },
+    { label: "Instagram", href: "https://instagram.com", icon: "instagram" },
+  ],
+  footerDescription:
+    "At Sigmen, we are committed to delivering safe, reliable, and high-quality elevator and lift solutions for homes, businesses, and industry.",
 } as const;

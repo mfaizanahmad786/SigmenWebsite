@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
 import { About } from "@/components/sections/about";
 import { Hero } from "@/components/sections/hero";
 import { MarqueeDivider } from "@/components/sections/marquee-divider";
@@ -22,6 +23,7 @@ export default function Home() {
         <Testimonials />
         <RequestQuote />
       </main>
+      <Footer />
     </>
   );
 }

@@ -9,7 +9,7 @@ const SETTLE_SCROLL_VH = 50;
 
 export function Services() {
   return (
-    <section className="bg-background">
+    <section id="services" className="bg-background">
       <div className="mx-auto max-w-max px-5 pt-20 pb-10 text-center md:px-8 md:pt-28 lg:px-[30px]">
         <p className="font-mono text-xl font-bold uppercase tracking-wide">
           <span className="text-accent">02.</span>{" "}
