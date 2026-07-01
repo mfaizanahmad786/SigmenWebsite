@@ -4,6 +4,7 @@ import { Hero } from "@/components/sections/hero";
 import { MarqueeDivider } from "@/components/sections/marquee-divider";
 import { Services } from "@/components/sections/services";
 import { Stats } from "@/components/sections/stats";
+import { Testimonials } from "@/components/sections/testimonials";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
         <Services />
         <WhyChooseUs />
         <MarqueeDivider />
+        <Testimonials />
       </main>
     </>
   );
