@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { AboutHero } from "@/components/sections/about-hero";
+import { Career } from "@/components/sections/career";
+import { Faq } from "@/components/sections/faq";
+import { Gallery } from "@/components/sections/gallery";
+import { MarqueeDivider } from "@/components/sections/marquee-divider";
+import { Mission } from "@/components/sections/mission";
 
 export const metadata: Metadata = {
   title: "About",
@@ -16,9 +21,14 @@ export default function AboutPage() {
         <Navbar tone="dark" />
         <AboutHero />
       </div>
-      <main>{/* Page content continues below the fold */}</main>
+      <main>
+        <Mission />
+        <MarqueeDivider />
+        <Career />
+        <Gallery />
+        <Faq />
+      </main>
       <Footer />
     </>
   );
 }
-

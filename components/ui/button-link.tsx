@@ -5,7 +5,7 @@ import { ArrowIcon } from "@/components/ui/arrow-icon";
 type ButtonLinkProps = {
   href: string;
   children: React.ReactNode;
-  variant?: "primary" | "accent" | "inverse";
+  variant?: "primary" | "accent" | "inverse" | "outline";
   className?: string;
 };
 
@@ -13,6 +13,8 @@ const variantStyles = {
   primary: "bg-primary text-primary-foreground hover:bg-primary/90",
   accent: "bg-accent text-accent-foreground hover:bg-accent/90",
   inverse: "bg-white text-primary hover:bg-white/90",
+  outline:
+    "border border-border bg-white text-primary hover:bg-muted/60",
 };
 
 export function ButtonLink({
@@ -31,7 +33,11 @@ export function ButtonLink({
       )}
     >
       <ArrowIcon
-        className={variant === "inverse" ? "text-accent" : undefined}
+        className={
+          variant === "inverse" || variant === "outline"
+            ? "text-accent"
+            : undefined
+        }
       />
       {children}
     </Link>
