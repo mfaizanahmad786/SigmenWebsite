@@ -18,7 +18,7 @@ export const siteConfig = {
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
     { label: "Services", href: "/#services" },
-    { label: "Contact", href: "/#contact" },
+    { label: "Contact", href: "/contact" },
   ],
   social: [
     { label: "TikTok", href: "https://tiktok.com", icon: "tiktok" },
