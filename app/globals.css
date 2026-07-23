@@ -83,38 +83,4 @@
     animation: logo-marquee-scroll linear infinite;
     will-change: transform;
   }
-
-  .footer-logo-wrap {
-    position: relative;
-    width: 100%;
-  }
-
-  .footer-logo-image {
-    display: block;
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 32px 48px rgb(0 0 0 / 0.45));
-  }
-
-  .footer-logo-shadow {
-    pointer-events: none;
-    position: absolute;
-    inset-inline: 8%;
-    bottom: 0;
-    height: 28%;
-    background: radial-gradient(
-      ellipse at center bottom,
-      rgb(0 0 0 / 0.55) 0%,
-      transparent 72%
-    );
-  }
-
-  .footer-logo-fade {
-    pointer-events: none;
-    position: absolute;
-    inset-inline: 0;
-    bottom: 0;
-    height: 42%;
-    background: linear-gradient(to top, var(--primary) 8%, transparent 100%);
-  }
 }
