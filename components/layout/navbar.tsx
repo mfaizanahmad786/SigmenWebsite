@@ -24,11 +24,15 @@ function ChevronDownIcon({ className }: { className?: string }) {
   );
 }
 
-export function Navbar() {
+type NavbarProps = {
+  tone?: "light" | "dark";
+};
+
+export function Navbar({ tone = "light" }: NavbarProps) {
   return (
     <header className="relative z-20 w-full">
       <div className="mx-auto flex max-w-nav items-center justify-between px-5 py-5 md:px-8 lg:px-[30px]">
-        <Logo />
+        <Logo tone={tone} />
 
         <nav
           className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 lg:flex"
@@ -38,7 +42,10 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wide text-primary transition-opacity hover:opacity-70"
+              className={cn(
+                "inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wide transition-opacity hover:opacity-70",
+                tone === "dark" ? "text-white" : "text-primary",
+              )}
             >
               {item.label}
               {"hasDropdown" in item && item.hasDropdown ? (
@@ -48,7 +55,10 @@ export function Navbar() {
           ))}
         </nav>
 
-        <ButtonLink href="/contact" variant="primary">
+        <ButtonLink
+          href="/contact"
+          variant={tone === "dark" ? "inverse" : "primary"}
+        >
           Contact us
         </ButtonLink>
       </div>
