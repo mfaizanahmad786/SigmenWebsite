@@ -48,7 +48,7 @@ function ServiceNumber({
 
 function ServiceImage({ service }: { service: Service }) {
   return (
-    <div className="relative h-[65vh] w-[48vh] max-w-[min(48vh,92vw)] overflow-hidden rounded-t-[20px] md:rounded-t-[24px]">
+    <div className="relative aspect-3/4 w-full max-w-[min(48vh,92vw)] overflow-hidden rounded-[20px] md:aspect-auto md:h-[65vh] md:w-[48vh] md:rounded-t-[24px] md:rounded-b-none">
       <Image
         src={service.image}
         alt={service.title}
@@ -64,7 +64,7 @@ export function ServiceSlide({ service, index }: ServiceSlideProps) {
   const isEven = index % 2 === 0;
 
   return (
-    <div className="mx-auto grid w-full max-w-max grid-cols-1 items-center gap-10 px-5 md:grid-cols-[1fr_auto_1fr] md:gap-8 md:px-8 lg:gap-12 lg:px-[30px]">
+    <div className="mx-auto grid w-full max-w-max grid-cols-1 items-center gap-6 px-5 md:grid-cols-[1fr_auto_1fr] md:gap-8 md:px-8 lg:gap-12 lg:px-[30px]">
       <div className="hidden min-h-[65vh] md:flex md:items-center md:justify-start">
         {isEven ? (
           <ServiceText service={service} />
@@ -89,11 +89,11 @@ export function ServiceSlide({ service, index }: ServiceSlideProps) {
         {isEven ? (
           <>
             <ServiceText service={service} className="flex-1" />
-            <ServiceNumber id={service.id} />
+            <ServiceNumber id={service.id} className="text-[4.5rem]" />
           </>
         ) : (
           <>
-            <ServiceNumber id={service.id} />
+            <ServiceNumber id={service.id} className="text-[4.5rem]" />
             <ServiceText service={service} className="flex-1 text-right" />
           </>
         )}

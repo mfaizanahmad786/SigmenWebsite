@@ -50,8 +50,8 @@ export function About() {
           </motion.p>
 
           <div>
-            <ButtonLink href="/contact" variant="primary">
-              Get in touch
+            <ButtonLink href="/about" variant="primary">
+              About Us
             </ButtonLink>
           </div>
 

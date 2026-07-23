@@ -1,11 +1,7 @@
 "use client";
 
-import { Fragment } from "react";
 import { services } from "@/constants/services";
 import { ServiceSlide } from "@/components/sections/service-slide";
-
-/** Transparent scroll gap — service stays settled before the next one slides in */
-const SETTLE_SCROLL_VH = 50;
 
 export function Services() {
   return (
@@ -20,24 +16,15 @@ export function Services() {
         </h2>
       </div>
 
-      <div className="relative">
+      <div className="relative flex flex-col gap-16 pb-20 md:block md:gap-0 md:pb-0">
         {services.map((service, index) => (
-          <Fragment key={service.id}>
-            {index > 0 && (
-              <div
-                aria-hidden="true"
-                className="pointer-events-none"
-                style={{ height: `${SETTLE_SCROLL_VH}vh` }}
-              />
-            )}
-
-            <div
-              className="sticky top-20 flex h-[calc(100vh-5rem)] items-start justify-center bg-background"
-              style={{ zIndex: index + 1 }}
-            >
-              <ServiceSlide service={service} index={index} />
-            </div>
-          </Fragment>
+          <div
+            key={service.id}
+            className="flex items-start justify-center bg-background md:sticky md:top-20 md:h-[calc(100vh-5rem)]"
+            style={{ zIndex: index + 1 }}
+          >
+            <ServiceSlide service={service} index={index} />
+          </div>
         ))}
       </div>
     </section>

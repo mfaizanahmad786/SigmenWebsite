@@ -11,13 +11,13 @@ export function Logo({ className, tone = "light" }: LogoProps) {
     <Link
       href="/"
       className={cn(
-        "font-heading text-[22px] font-bold tracking-tight lowercase",
+        "font-sans text-[1.375rem] font-black uppercase leading-none tracking-[-0.02em] md:text-[1.5rem]",
         tone === "dark" ? "text-white" : "text-primary",
         className,
       )}
       aria-label="Sigmen home"
     >
-      sigmen
+      Sigmen
     </Link>
   );
 }

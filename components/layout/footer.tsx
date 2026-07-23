@@ -36,14 +36,14 @@ export function Footer() {
 
         <a
           href={`mailto:${siteConfig.contact.email}`}
-          className="mt-8 font-heading text-[clamp(1.75rem,6vw,3.75rem)] font-bold leading-[1.05] tracking-tight text-white transition-opacity hover:opacity-90 md:mt-10"
+          className="mt-8 font-sans text-[clamp(1.75rem,6vw,3.75rem)] font-black leading-[1.05] tracking-tight text-white transition-opacity hover:opacity-90 md:mt-10"
         >
           {siteConfig.contact.email}
         </a>
 
         <a
           href={`tel:${siteConfig.contact.phone}`}
-          className="mt-4 text-base font-semibold tracking-wide text-white/75 transition-colors hover:text-white md:mt-5 md:text-lg"
+          className="mt-4 font-sans text-base font-semibold tracking-wide text-white/75 transition-colors hover:text-white md:mt-5 md:text-lg"
         >
           {siteConfig.contact.phone}
         </a>
