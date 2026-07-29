@@ -11,8 +11,6 @@ export const siteConfig = {
   nav: [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
-    { label: "Essentials", href: "/essentials", hasDropdown: true },
-    { label: "Blogs", href: "/blog" },
   ],
   footerLinks: [
     { label: "Home", href: "/" },
