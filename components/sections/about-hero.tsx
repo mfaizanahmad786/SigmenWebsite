@@ -30,7 +30,7 @@ export function AboutHero() {
             animate="visible"
           >
             Reliable elevator and lift solutions delivered by certified
-            professionals — built on safety, trust, and lasting craftsmanship.
+            professionals built on safety, trust, and lasting craftsmanship.
           </motion.p>
         </div>
 
