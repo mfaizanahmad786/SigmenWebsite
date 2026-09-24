@@ -28,8 +28,8 @@ export function About() {
           </div>
 
           <ScrollZoomImage
-            src="/images/services1.png"
-            alt="Elevator technician at work"
+            src="/images/about-atrium.jpg"
+            alt="Glass lift shaft rising through a skylit office atrium"
             className="h-[320px] w-full rounded-[20px] md:h-[380px] lg:h-[420px]"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
@@ -56,8 +56,8 @@ export function About() {
           </div>
 
           <ScrollZoomImage
-            src="/images/services2.png"
-            alt="Sigmen service professional"
+            src="/images/about-corridor.jpg"
+            alt="Stainless steel lift doors lining a marble hotel corridor"
             className="h-[220px] w-full rounded-[20px] md:h-[260px] lg:mt-auto lg:h-[280px]"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
