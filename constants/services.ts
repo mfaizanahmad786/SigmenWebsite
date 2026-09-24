@@ -11,7 +11,7 @@ export const services: Service[] = [
     title: "Residential Installation",
     description:
       "Complete home elevator installation and lift system setup to ensure safety, reliability, and code compliance.",
-    image: "/images/services1.png",
+    image: "/images/service-residential.jpg",
   },
   {
     id: "02",
@@ -25,13 +25,13 @@ export const services: Service[] = [
     title: "Commercial Service",
     description:
       "Professional elevator system design, installation, and maintenance for offices, retail spaces, and industrial facilities.",
-    image: "/images/hero-main.jpg",
+    image: "/images/service-commercial.jpg",
   },
   {
     id: "04",
     title: "Modernization",
     description:
       "Creative and functional lift modernization solutions including control upgrades, cabin refurbishment, and energy efficiency improvements.",
-    image: "/images/services1.png",
+    image: "/images/service-modernization-car.jpg",
   },
 ];
