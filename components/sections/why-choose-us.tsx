@@ -107,8 +107,8 @@ export function WhyChooseUs() {
           className="relative min-h-[280px] overflow-hidden rounded-[20px] md:col-start-1 md:row-start-1 md:min-h-[320px]"
         >
           <Image
-            src="/images/services1.png"
-            alt="Certified technician at work"
+            src="/images/why-lobby-doors.jpg"
+            alt="Lift doors at the end of a dimly lit lobby"
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 33vw"
@@ -130,10 +130,10 @@ export function WhyChooseUs() {
           className="relative min-h-[320px] overflow-hidden rounded-[20px] md:col-start-3 md:row-span-2 md:row-start-1 md:min-h-[420px]"
         >
           <Image
-            src="/images/hero-main.jpg"
-            alt="Sigmen elevator technician"
+            src="/images/why-brass-doors.jpg"
+            alt="Brass lift doors framed by latticework in a hotel lobby"
             fill
-            className="object-cover object-top"
+            className="object-cover"
             sizes="(max-width: 768px) 100vw, 33vw"
           />
         </motion.div>
@@ -171,8 +171,8 @@ export function WhyChooseUs() {
         {/* Center-bottom — static image */}
         <div className="relative min-h-[320px] overflow-hidden rounded-[20px] md:col-start-2 md:row-span-2 md:row-start-2 md:min-h-[420px]">
           <Image
-            src="/images/services2.png"
-            alt="Elevator maintenance professional"
+            src="/images/why-capsule-lift.jpg"
+            alt="Red capsule lift on the facade of a modern building"
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 33vw"
