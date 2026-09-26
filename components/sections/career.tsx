@@ -21,8 +21,8 @@ export function Career() {
       <div className="mx-auto max-w-max px-5 md:px-8 lg:px-[30px]">
         <div className="mx-auto max-w-[720px] text-center">
           <p className="font-mono text-xl font-bold uppercase tracking-wide">
-            <span className="text-accent">01.</span>{" "}
-            <span className="text-primary">Career</span>
+            <span className="text-accent">02.</span>{" "}
+            <span className="text-primary">Mission &amp; Vision</span>
           </p>
 
           <motion.h2
@@ -32,14 +32,14 @@ export function Career() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
           >
-            Build a Brighter Future With Us
+            Built On Safety And Trust
           </motion.h2>
         </div>
 
         <div className="mt-12 grid items-start gap-10 md:mt-16 lg:mt-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14 xl:gap-16">
           <ScrollZoomImage
-            src="/images/careerImage.jpeg"
-            alt="Technician working on overhead electrical systems"
+            src="/images/mission-technician.jpg"
+            alt="Sigmen technician wiring a lift control panel"
             className="aspect-4/5 w-full rounded-[20px] md:rounded-[24px] lg:aspect-auto lg:min-h-[640px]"
             sizes="(max-width: 1024px) 100vw, 45vw"
           />

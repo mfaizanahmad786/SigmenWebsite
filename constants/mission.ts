@@ -1,32 +1,32 @@
-export const missionTimeline = [
+export const processSteps = [
   {
-    title: "Foundation of Vision",
-    year: "2020",
+    step: "01",
+    title: "Consultation",
     description:
-      "The journey began with a simple yet powerful vision: to deliver safe, reliable elevator solutions that elevate everyday spaces.",
+      "We start by understanding the building, how people move through it, and what the budget allows, then advise on the lift that genuinely fits.",
   },
   {
-    title: "Skills Expansion Phase",
-    year: "2021",
+    step: "02",
+    title: "Site Survey & Design",
     description:
-      "A year dedicated to growth, training, and mastering essential systems. New safety standards, installation methods, and service excellence.",
+      "Our engineers measure the shaft and assess the structure and power supply, producing a specification you can sign off with confidence.",
   },
   {
-    title: "Professional Journey Begins",
-    year: "2022",
+    step: "03",
+    title: "Installation",
     description:
-      "This year marks the transition from building capability to serving real homes, offices, and commercial spaces with certified technicians.",
+      "Certified technicians fit the system to an agreed schedule, working around the building's routine and keeping disruption to a minimum.",
   },
   {
-    title: "Service Network Launch",
-    year: "2023",
+    step: "04",
+    title: "Testing & Handover",
     description:
-      "Our service presence expanded, bringing dependable maintenance, modernization, and support to more clients across the region.",
+      "Every safety circuit is tested and documented, compliance paperwork is issued, and we walk your team through day-to-day operation.",
   },
   {
-    title: "Advanced Skills Mastery",
-    year: "2025",
+    step: "05",
+    title: "Maintenance & Support",
     description:
-      "Deeper expertise in modern lift systems, safety compliance, and client care took shape — with a sharper focus on lasting craftsmanship.",
+      "A servicing schedule keeps the lift running smoothly, backed by emergency callout for the moments that cannot wait.",
   },
 ] as const;
