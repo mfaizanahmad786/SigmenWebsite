@@ -45,8 +45,8 @@ export function AboutHero() {
             variants={aboutHeroImage}
           >
             <Image
-              src="/images/AboutImageLeft.png"
-              alt="Technician installing an electrical outlet on site"
+              src="/images/about-hero-left.jpg"
+              alt="Close view of a lift car button panel"
               width={2000}
               height={1600}
               className="h-auto w-full"
@@ -60,8 +60,8 @@ export function AboutHero() {
             variants={aboutHeroImage}
           >
             <Image
-              src="/images/AboutImageRight.png"
-              alt="Sigmen service professional ready for inspection"
+              src="/images/about-hero-corridor.jpg"
+              alt="Marble lift lobby with doors facing each other"
               width={3120}
               height={1600}
               className="h-auto w-full"
