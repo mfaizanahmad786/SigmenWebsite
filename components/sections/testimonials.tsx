@@ -86,14 +86,19 @@ function LogoMarquee() {
   );
 }
 
-export function Testimonials() {
+type TestimonialsProps = {
+  /** Eyebrow number, which differs per page since it runs in section order. */
+  index?: string;
+};
+
+export function Testimonials({ index = "03" }: TestimonialsProps) {
   return (
     <section className="overflow-hidden bg-background py-20 md:py-28 lg:py-32">
       <div className="mx-auto max-w-max px-5 md:px-8 lg:px-[30px]">
         <div className="mx-auto max-w-3xl text-center">
           <p className="font-mono text-xl font-bold uppercase tracking-wide">
-            <span className="text-accent">04.</span>{" "}
-            <span className="text-primary">Testimonials</span>
+            <span className="text-accent">{index}.</span>{" "}
+            <span className="text-primary">Our clients</span>
           </p>
 
           <motion.h2

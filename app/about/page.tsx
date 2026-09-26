@@ -4,9 +4,10 @@ import { Navbar } from "@/components/layout/navbar";
 import { AboutHero } from "@/components/sections/about-hero";
 import { Career } from "@/components/sections/career";
 import { Faq } from "@/components/sections/faq";
-import { Gallery } from "@/components/sections/gallery";
+// import { Gallery } from "@/components/sections/gallery";
 import { MarqueeDivider } from "@/components/sections/marquee-divider";
 import { Mission } from "@/components/sections/mission";
+import { Testimonials } from "@/components/sections/testimonials";
 
 export const metadata: Metadata = {
   title: "About",
@@ -25,7 +26,8 @@ export default function AboutPage() {
         <Mission />
         <MarqueeDivider />
         <Career />
-        <Gallery />
+        {/* <Gallery /> */}
+        <Testimonials />
         <Faq />
       </main>
       <Footer />

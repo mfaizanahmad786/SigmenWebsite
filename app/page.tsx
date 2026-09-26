@@ -20,7 +20,7 @@ export default function Home() {
         <Services />
         <WhyChooseUs />
         <MarqueeDivider />
-        <Testimonials />
+        <Testimonials index="04" />
         <RequestQuote />
       </main>
       <Footer />
