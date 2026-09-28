@@ -2,9 +2,24 @@
 
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { HiOutlineEnvelope, HiOutlineMapPin, HiOutlinePhone } from "react-icons/hi2";
+import {
+  HiOutlineEnvelope,
+  HiOutlineMapPin,
+  HiOutlinePhone,
+} from "react-icons/hi2";
 import { ArrowIcon } from "@/components/ui/arrow-icon";
-import { quoteServiceOptions } from "@/constants/quote-form";
+import { ChevronDownIcon } from "@/components/ui/chevron-down-icon";
+import {
+  buildingTypeOptions,
+  callTimeOptions,
+  doorSizeOptions,
+  doorTypeOptions,
+  entityOptions,
+  liftOriginOptions,
+  liftTypeOptions,
+  projectStatusOptions,
+  quoteServiceOptions,
+} from "@/constants/quote-form";
 import { siteConfig } from "@/constants/site";
 import { fadeInInView, headingBlurFadeInView } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -12,19 +27,55 @@ import { cn } from "@/lib/utils";
 type FormValues = {
   fullName: string;
   phone: string;
-  date: string;
+  city: string;
+  entity: string;
+  buildingType: string;
+  status: string;
   service: string;
+  date: string;
+  callTime: string;
   message: string;
+  floors: string;
+  persons: string;
+  doorSize: string;
+  doorType: string;
+  shaftWidth: string;
+  shaftDepth: string;
+  pitDepth: string;
+  machineRoomHeight: string;
+  floorHeight: string;
+  travelHeight: string;
+  origin: string;
+  liftType: string;
 };
 
 type FormErrors = Partial<Record<keyof FormValues, string>>;
 
+type SelectOption = { readonly value: string; readonly label: string };
+
 const initialValues: FormValues = {
   fullName: "",
   phone: "",
-  date: "",
+  city: "",
+  entity: "",
+  buildingType: "",
+  status: "",
   service: "",
+  date: "",
+  callTime: "",
   message: "",
+  floors: "",
+  persons: "",
+  doorSize: "",
+  doorType: "",
+  shaftWidth: "",
+  shaftDepth: "",
+  pitDepth: "",
+  machineRoomHeight: "",
+  floorHeight: "",
+  travelHeight: "",
+  origin: "",
+  liftType: "",
 };
 
 function getTodayString() {
@@ -49,14 +100,28 @@ function validateForm(values: FormValues): FormErrors {
     errors.phone = "Enter a valid phone number.";
   }
 
-  if (!values.date) {
-    errors.date = "Preferred date is required.";
-  } else if (values.date < today) {
-    errors.date = "Date cannot be earlier than today.";
+  if (!values.city.trim()) {
+    errors.city = "City or area is required.";
+  }
+
+  if (!values.entity) {
+    errors.entity = "Please select one.";
+  }
+
+  if (!values.buildingType) {
+    errors.buildingType = "Please select a building type.";
+  }
+
+  if (!values.status) {
+    errors.status = "Please select a project status.";
   }
 
   if (!values.service) {
     errors.service = "Please select a service.";
+  }
+
+  if (values.date && values.date < today) {
+    errors.date = "Date cannot be earlier than today.";
   }
 
   return errors;
@@ -73,10 +138,160 @@ function FieldError({ message }: { message?: string }) {
   return <p className="mt-1.5 text-xs text-accent">{message}</p>;
 }
 
+function RequiredMark() {
+  return <span className="text-accent">*</span>;
+}
+
+type FieldProps = {
+  id: string;
+  label: string;
+  required?: boolean;
+  error?: string;
+  className?: string;
+  children: React.ReactNode;
+};
+
+function Field({
+  id,
+  label,
+  required,
+  error,
+  className,
+  children,
+}: FieldProps) {
+  return (
+    <div className={className}>
+      <label htmlFor={id} className={labelClassName}>
+        {label}
+        {required ? <RequiredMark /> : null}
+      </label>
+      {children}
+      <FieldError message={error} />
+    </div>
+  );
+}
+
+type SelectFieldProps = {
+  id: string;
+  label: string;
+  options: readonly SelectOption[];
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  required?: boolean;
+  error?: string;
+  className?: string;
+};
+
+function SelectField({
+  id,
+  label,
+  options,
+  value,
+  onChange,
+  required,
+  error,
+  className,
+}: SelectFieldProps) {
+  return (
+    <Field
+      id={id}
+      label={label}
+      required={required}
+      error={error}
+      className={className}
+    >
+      <div className="relative">
+        <select
+          id={id}
+          name={id}
+          value={value}
+          onChange={onChange}
+          className={cn(
+            fieldClassName,
+            "cursor-pointer appearance-none pr-8",
+            error && "border-accent",
+            !value && "text-muted-foreground/55",
+          )}
+          aria-invalid={Boolean(error)}
+        >
+          {options.map((option) => (
+            <option
+              key={option.value}
+              value={option.value}
+              disabled={option.value === ""}
+            >
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <span
+          className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-primary"
+          aria-hidden
+        >
+          ▾
+        </span>
+      </div>
+    </Field>
+  );
+}
+
+type TextFieldProps = {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  type?: "text" | "tel" | "date" | "number";
+  placeholder?: string;
+  autoComplete?: string;
+  min?: string | number;
+  required?: boolean;
+  error?: string;
+  className?: string;
+};
+
+function TextField({
+  id,
+  label,
+  value,
+  onChange,
+  type = "text",
+  placeholder,
+  autoComplete,
+  min,
+  required,
+  error,
+  className,
+}: TextFieldProps) {
+  return (
+    <Field
+      id={id}
+      label={label}
+      required={required}
+      error={error}
+      className={className}
+    >
+      <input
+        id={id}
+        name={id}
+        type={type}
+        inputMode={type === "number" ? "numeric" : undefined}
+        placeholder={placeholder}
+        autoComplete={autoComplete}
+        min={min}
+        value={value}
+        onChange={onChange}
+        className={cn(fieldClassName, error && "border-accent")}
+        aria-invalid={Boolean(error)}
+      />
+    </Field>
+  );
+}
+
 export function RequestQuote() {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [showSpecs, setShowSpecs] = useState(false);
   const minDate = useMemo(() => getTodayString(), []);
 
   const updateField =
@@ -129,9 +344,9 @@ export function RequestQuote() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.45 }}
             >
-              Tell us about your project and our team will respond with a tailored
-              elevator solution. From new installations to ongoing maintenance,
-              Sigmen delivers safe, reliable service.
+              Tell us the basics and our team will call you back to work out the
+              rest. No site measurements needed yet, and nothing here is
+              binding.
             </motion.p>
           </div>
 
@@ -143,13 +358,22 @@ export function RequestQuote() {
             viewport={{ once: true, amount: 0.4 }}
           >
             <li className="flex items-center gap-3">
-              <HiOutlinePhone className="size-5 shrink-0 text-primary" aria-hidden />
-              <a href={`tel:${siteConfig.contact.phone}`} className="hover:text-accent">
+              <HiOutlinePhone
+                className="size-5 shrink-0 text-primary"
+                aria-hidden
+              />
+              <a
+                href={`tel:${siteConfig.contact.phone}`}
+                className="hover:text-accent"
+              >
                 {siteConfig.contact.phone}
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <HiOutlineEnvelope className="size-5 shrink-0 text-primary" aria-hidden />
+              <HiOutlineEnvelope
+                className="size-5 shrink-0 text-primary"
+                aria-hidden
+              />
               <a
                 href={`mailto:${siteConfig.contact.email}`}
                 className="hover:text-accent"
@@ -179,100 +403,117 @@ export function RequestQuote() {
             className="rounded-[20px] border border-border bg-white p-6 md:p-8 lg:p-10"
           >
             <div className="grid gap-6 md:grid-cols-2 md:gap-x-8 md:gap-y-7">
-              <div>
-                <label htmlFor="fullName" className={labelClassName}>
-                  Full name<span className="text-primary">*</span>
-                </label>
-                <input
-                  id="fullName"
-                  name="fullName"
-                  type="text"
-                  autoComplete="name"
-                  placeholder="Name"
-                  value={values.fullName}
-                  onChange={updateField("fullName")}
-                  className={cn(fieldClassName, errors.fullName && "border-accent")}
-                  aria-invalid={Boolean(errors.fullName)}
-                />
-                <FieldError message={errors.fullName} />
-              </div>
+              <TextField
+                id="fullName"
+                label="Full name"
+                placeholder="Name"
+                autoComplete="name"
+                required
+                value={values.fullName}
+                onChange={updateField("fullName")}
+                error={errors.fullName}
+              />
 
-              <div>
-                <label htmlFor="phone" className={labelClassName}>
-                  Phone number<span className="text-primary">*</span>
-                </label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  autoComplete="tel"
-                  placeholder="Phone"
-                  value={values.phone}
-                  onChange={updateField("phone")}
-                  className={cn(fieldClassName, errors.phone && "border-accent")}
-                  aria-invalid={Boolean(errors.phone)}
-                />
-                <FieldError message={errors.phone} />
-              </div>
+              <TextField
+                id="phone"
+                label="Phone number"
+                type="tel"
+                placeholder="03XX XXXXXXX"
+                autoComplete="tel"
+                required
+                value={values.phone}
+                onChange={updateField("phone")}
+                error={errors.phone}
+              />
 
-              <div>
-                <label htmlFor="date" className={labelClassName}>
-                  Date<span className="text-primary">*</span>
-                </label>
-                <input
-                  id="date"
-                  name="date"
-                  type="date"
-                  min={minDate}
-                  value={values.date}
-                  onChange={updateField("date")}
-                  className={cn(fieldClassName, errors.date && "border-accent")}
-                  aria-invalid={Boolean(errors.date)}
-                />
-                <FieldError message={errors.date} />
-              </div>
+              <TextField
+                id="city"
+                label="City / area"
+                placeholder="City"
+                autoComplete="address-level2"
+                required
+                value={values.city}
+                onChange={updateField("city")}
+                error={errors.city}
+              />
 
-              <div>
-                <label htmlFor="service" className={labelClassName}>
-                  Service<span className="text-primary">*</span>
-                </label>
-                <div className="relative">
-                  <select
-                    id="service"
-                    name="service"
-                    value={values.service}
-                    onChange={updateField("service")}
-                    className={cn(
-                      fieldClassName,
-                      "cursor-pointer appearance-none pr-8",
-                      errors.service && "border-accent",
-                      !values.service && "text-muted-foreground/55",
-                    )}
-                    aria-invalid={Boolean(errors.service)}
-                  >
-                    {quoteServiceOptions.map((option) => (
-                      <option
-                        key={option.value}
+              <SelectField
+                id="service"
+                label="Service"
+                options={quoteServiceOptions}
+                required
+                value={values.service}
+                onChange={updateField("service")}
+                error={errors.service}
+              />
+
+              <SelectField
+                id="buildingType"
+                label="Building type"
+                options={buildingTypeOptions}
+                required
+                value={values.buildingType}
+                onChange={updateField("buildingType")}
+                error={errors.buildingType}
+              />
+
+              <SelectField
+                id="status"
+                label="Project status"
+                options={projectStatusOptions}
+                required
+                value={values.status}
+                onChange={updateField("status")}
+                error={errors.status}
+              />
+
+              <fieldset className="md:col-span-2">
+                <legend className={labelClassName}>
+                  You are enquiring as
+                  <RequiredMark />
+                </legend>
+                <div className="flex flex-wrap gap-x-7 gap-y-3">
+                  {entityOptions.map((option) => (
+                    <label
+                      key={option.value}
+                      className="flex cursor-pointer items-center gap-2.5 text-sm text-primary"
+                    >
+                      <input
+                        type="radio"
+                        name="entity"
                         value={option.value}
-                        disabled={option.value === ""}
-                      >
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
-                  <span
-                    className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-primary"
-                    aria-hidden
-                  >
-                    ▾
-                  </span>
+                        checked={values.entity === option.value}
+                        onChange={updateField("entity")}
+                        className="size-4 accent-accent"
+                      />
+                      {option.label}
+                    </label>
+                  ))}
                 </div>
-                <FieldError message={errors.service} />
-              </div>
+                <FieldError message={errors.entity} />
+              </fieldset>
+
+              <TextField
+                id="date"
+                label="Preferred date to call"
+                type="date"
+                min={minDate}
+                value={values.date}
+                onChange={updateField("date")}
+                error={errors.date}
+              />
+
+              <SelectField
+                id="callTime"
+                label="Preferred time"
+                options={callTimeOptions}
+                value={values.callTime}
+                onChange={updateField("callTime")}
+              />
 
               <div className="md:col-span-2">
                 <label htmlFor="message" className={labelClassName}>
-                  Your message
+                  Tell us about your project
                 </label>
                 <textarea
                   id="message"
@@ -286,18 +527,138 @@ export function RequestQuote() {
               </div>
             </div>
 
+            <button
+              type="button"
+              onClick={() => setShowSpecs((current) => !current)}
+              aria-expanded={showSpecs}
+              aria-controls="technical-specs"
+              className="mt-8 flex w-full items-center justify-between gap-4 rounded-xl border border-border bg-muted/50 px-5 py-4 text-left font-heading text-xs font-bold uppercase tracking-wide text-primary transition-colors hover:bg-muted"
+            >
+              Already have the technical specs?
+              <ChevronDownIcon
+                className={cn(
+                  "transition-transform",
+                  showSpecs && "rotate-180",
+                )}
+              />
+            </button>
+
+            {showSpecs ? (
+              <div id="technical-specs" className="mt-6">
+                <p className="text-sm leading-6 text-muted-foreground">
+                  Only fill this in if you already have drawings or
+                  measurements. Otherwise our team will collect these on a site
+                  visit.
+                </p>
+
+                <div className="mt-6 grid gap-6 md:grid-cols-2 md:gap-x-8 md:gap-y-7">
+                  <TextField
+                    id="floors"
+                    label="No. of floors"
+                    placeholder="e.g. B + G + 4"
+                    value={values.floors}
+                    onChange={updateField("floors")}
+                  />
+                  <TextField
+                    id="persons"
+                    label="Persons / cargo"
+                    placeholder="e.g. 8 persons"
+                    value={values.persons}
+                    onChange={updateField("persons")}
+                  />
+                  <SelectField
+                    id="doorSize"
+                    label="Door opening size"
+                    options={doorSizeOptions}
+                    value={values.doorSize}
+                    onChange={updateField("doorSize")}
+                  />
+                  <SelectField
+                    id="doorType"
+                    label="Door type"
+                    options={doorTypeOptions}
+                    value={values.doorType}
+                    onChange={updateField("doorType")}
+                  />
+                  <TextField
+                    id="shaftWidth"
+                    label="Shaft width (mm)"
+                    type="number"
+                    min={0}
+                    value={values.shaftWidth}
+                    onChange={updateField("shaftWidth")}
+                  />
+                  <TextField
+                    id="shaftDepth"
+                    label="Shaft depth (mm)"
+                    type="number"
+                    min={0}
+                    value={values.shaftDepth}
+                    onChange={updateField("shaftDepth")}
+                  />
+                  <TextField
+                    id="pitDepth"
+                    label="PIT depth (mm)"
+                    type="number"
+                    min={0}
+                    value={values.pitDepth}
+                    onChange={updateField("pitDepth")}
+                  />
+                  <TextField
+                    id="machineRoomHeight"
+                    label="Machine room height (mm)"
+                    type="number"
+                    min={0}
+                    value={values.machineRoomHeight}
+                    onChange={updateField("machineRoomHeight")}
+                  />
+                  <TextField
+                    id="floorHeight"
+                    label="Floor-to-floor height (mm)"
+                    type="number"
+                    min={0}
+                    value={values.floorHeight}
+                    onChange={updateField("floorHeight")}
+                  />
+                  <TextField
+                    id="travelHeight"
+                    label="Total travel height (mm)"
+                    type="number"
+                    min={0}
+                    value={values.travelHeight}
+                    onChange={updateField("travelHeight")}
+                  />
+                  <SelectField
+                    id="origin"
+                    label="Lift origin"
+                    options={liftOriginOptions}
+                    value={values.origin}
+                    onChange={updateField("origin")}
+                  />
+                  <SelectField
+                    id="liftType"
+                    label="Lift type"
+                    options={liftTypeOptions}
+                    value={values.liftType}
+                    onChange={updateField("liftType")}
+                  />
+                </div>
+              </div>
+            ) : null}
+
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <button
                 type="submit"
                 className="inline-flex items-center gap-2.5 rounded-xl bg-accent px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-accent/90"
               >
                 <ArrowIcon />
-                Request a quote
+                Send enquiry
               </button>
 
               {submitted ? (
                 <p className="text-sm font-medium text-primary">
-                  Thank you — your quote request has been received.
+                  Thank you, one of our team will call you within one business
+                  day.
                 </p>
               ) : null}
             </div>
