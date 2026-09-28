@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { About } from "@/components/sections/about";
 import { Hero } from "@/components/sections/hero";
+import { ClaimNumeral } from "@/components/sections/claim-numeral";
 import { MarqueeDivider } from "@/components/sections/marquee-divider";
 import { RequestQuote } from "@/components/sections/request-quote";
 import { Services } from "@/components/sections/services";
@@ -15,6 +16,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <ClaimNumeral />
         <About />
         <Stats />
         <Services />

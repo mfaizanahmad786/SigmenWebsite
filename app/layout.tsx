@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SmoothScroll } from "@/components/layout/smooth-scroll";
+import { WhatsappButton } from "@/components/layout/whatsapp-button";
 import { fontVariables } from "@/lib/fonts";
 import { siteConfig } from "@/constants/site";
 import "lenis/dist/lenis.css";
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en" className={`${fontVariables} h-full`}>
       <body className="flex min-h-full flex-col">
         <SmoothScroll>{children}</SmoothScroll>
+        <WhatsappButton />
       </body>
     </html>
   );

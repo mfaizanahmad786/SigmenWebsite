@@ -6,16 +6,20 @@ export const siteConfig = {
   contact: {
     phone: "+92 (21) 555-0147",
     email: "info@sigmen.com",
+    /** Digits only, in international format, as wa.me requires. */
+    whatsapp: "923005013367",
   },
   nav: [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
+    { label: "Team", href: "/team" },
   ],
   footerLinks: [
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
     { label: "Services", href: "/services" },
+    { label: "Team", href: "/team" },
     { label: "Contact", href: "/contact" },
   ],
   social: [
