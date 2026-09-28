@@ -1,11 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  HiOutlineEnvelope,
-  HiOutlineMapPin,
-  HiOutlinePhone,
-} from "react-icons/hi2";
+import { HiOutlineEnvelope, HiOutlinePhone } from "react-icons/hi2";
 import { siteConfig } from "@/constants/site";
 import { slideFromBottomInView, slideFromBottomStagger } from "@/lib/motion";
 
@@ -22,19 +18,13 @@ const contactCards = [
     href: `tel:${siteConfig.contact.phone}`,
     icon: HiOutlinePhone,
   },
-  {
-    label: "Office address",
-    value: siteConfig.contact.address,
-    href: null,
-    icon: HiOutlineMapPin,
-  },
 ] as const;
 
 export function ContactCards() {
   return (
     <section className="bg-background py-16 md:py-20 lg:py-24">
       <motion.div
-        className="mx-auto grid max-w-max gap-4 px-5 md:grid-cols-3 md:gap-5 md:px-8 lg:gap-6 lg:px-[30px]"
+        className="mx-auto grid max-w-max gap-4 px-5 md:grid-cols-2 md:gap-5 md:px-8 lg:gap-6 lg:px-[30px]"
         variants={slideFromBottomStagger}
         initial="hidden"
         whileInView="visible"
@@ -51,18 +41,12 @@ export function ContactCards() {
             >
               <Icon className="size-7 text-primary md:size-8" aria-hidden />
 
-              {card.href ? (
-                <a
-                  href={card.href}
-                  className="mt-5 block font-heading text-sm font-bold uppercase tracking-wide text-primary transition-colors hover:text-accent md:text-base"
-                >
-                  {card.value}
-                </a>
-              ) : (
-                <p className="mt-5 font-heading text-sm font-bold uppercase tracking-wide text-primary md:text-base">
-                  {card.value}
-                </p>
-              )}
+              <a
+                href={card.href}
+                className="mt-5 block font-heading text-sm font-bold uppercase tracking-wide text-primary transition-colors hover:text-accent md:text-base"
+              >
+                {card.value}
+              </a>
 
               <p className="mt-2 text-sm text-muted-foreground">{card.label}</p>
             </motion.div>

@@ -43,7 +43,7 @@ export function Navbar({ tone = "light" }: NavbarProps) {
               key={item.href}
               href={item.href}
               className={cn(
-                "inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wide transition-opacity hover:opacity-70",
+                "group relative inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wide",
                 tone === "dark" ? "text-white" : "text-primary",
               )}
             >
@@ -51,6 +51,12 @@ export function Navbar({ tone = "light" }: NavbarProps) {
               {"hasDropdown" in item && item.hasDropdown ? (
                 <ChevronDownIcon />
               ) : null}
+              {/* Wipes in from the left, and retracts back to the left from
+                  wherever it had reached when the pointer leaves. */}
+              <span
+                className="pointer-events-none absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-current transition-transform duration-300 ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100"
+                aria-hidden
+              />
             </Link>
           ))}
         </nav>
@@ -59,7 +65,7 @@ export function Navbar({ tone = "light" }: NavbarProps) {
           href="/contact"
           variant={tone === "dark" ? "inverse" : "primary"}
         >
-          Contact us
+          Get a quote
         </ButtonLink>
       </div>
     </header>

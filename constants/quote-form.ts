@@ -1,17 +1,12 @@
+import { services } from "@/constants/services";
+
+/** Derived from the service list so the form and the services page cannot drift. */
 export const quoteServiceOptions = [
   { value: "", label: "Select a service" },
-  { value: "installation", label: "Installation" },
-  { value: "maintenance", label: "Maintenance" },
-  { value: "modernization", label: "Modernization" },
-  { value: "repair", label: "Repair" },
-  { value: "inspection", label: "Inspection" },
-  { value: "consultation", label: "Consultation" },
-] as const;
+  ...services.map((service) => ({ value: service.slug, label: service.title })),
+];
 
-export type QuoteServiceValue = Exclude<
-  (typeof quoteServiceOptions)[number]["value"],
-  ""
->;
+export type QuoteServiceValue = (typeof services)[number]["slug"];
 
 export const entityOptions = [
   { value: "Owner", label: "Owner" },

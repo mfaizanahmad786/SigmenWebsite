@@ -2,11 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import {
-  HiOutlineEnvelope,
-  HiOutlineMapPin,
-  HiOutlinePhone,
-} from "react-icons/hi2";
+import { HiOutlineEnvelope, HiOutlinePhone } from "react-icons/hi2";
 import { ArrowIcon } from "@/components/ui/arrow-icon";
 import { ChevronDownIcon } from "@/components/ui/chevron-down-icon";
 import {
@@ -287,7 +283,12 @@ function TextField({
   );
 }
 
-export function RequestQuote() {
+type RequestQuoteProps = {
+  /** Eyebrow number, which differs per page since it runs in section order. */
+  index?: string;
+};
+
+export function RequestQuote({ index = "05" }: RequestQuoteProps) {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
@@ -323,7 +324,7 @@ export function RequestQuote() {
         <div className="flex flex-col gap-8 lg:gap-10">
           <div>
             <p className="font-mono text-xl font-bold uppercase tracking-wide">
-              <span className="text-accent">05.</span>{" "}
+              <span className="text-accent">{index}.</span>{" "}
               <span className="text-primary">Contact us</span>
             </p>
 
@@ -380,13 +381,6 @@ export function RequestQuote() {
               >
                 {siteConfig.contact.email}
               </a>
-            </li>
-            <li className="flex items-start gap-3">
-              <HiOutlineMapPin
-                className="mt-0.5 size-5 shrink-0 text-primary"
-                aria-hidden
-              />
-              <span>{siteConfig.contact.address}</span>
             </li>
           </motion.ul>
         </div>
