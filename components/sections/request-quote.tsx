@@ -47,6 +47,8 @@ type FormValues = {
 
 type FormErrors = Partial<Record<keyof FormValues, string>>;
 
+type SubmitStatus = "idle" | "sending" | "sent" | "error";
+
 type SelectOption = { readonly value: string; readonly label: string };
 
 const initialValues: FormValues = {
@@ -291,8 +293,10 @@ type RequestQuoteProps = {
 export function RequestQuote({ index = "05" }: RequestQuoteProps) {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<SubmitStatus>("idle");
+  const [sendError, setSendError] = useState<string | null>(null);
   const [showSpecs, setShowSpecs] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
   const minDate = useMemo(() => getTodayString(), []);
 
   const updateField =
@@ -304,10 +308,11 @@ export function RequestQuote({ index = "05" }: RequestQuoteProps) {
     ) => {
       setValues((current) => ({ ...current, [field]: event.target.value }));
       setErrors((current) => ({ ...current, [field]: undefined }));
-      setSubmitted(false);
+      setStatus("idle");
+      setSendError(null);
     };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const nextErrors = validateForm(values);
@@ -315,7 +320,34 @@ export function RequestQuote({ index = "05" }: RequestQuoteProps) {
 
     if (Object.keys(nextErrors).length > 0) return;
 
-    setSubmitted(true);
+    setStatus("sending");
+    setSendError(null);
+
+    try {
+      const response = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...values, company: honeypot }),
+      });
+
+      if (!response.ok) {
+        const body = (await response.json().catch(() => null)) as {
+          error?: string;
+        } | null;
+        throw new Error(body?.error ?? "Something went wrong.");
+      }
+
+      setValues(initialValues);
+      setShowSpecs(false);
+      setStatus("sent");
+    } catch (cause) {
+      setSendError(
+        cause instanceof Error
+          ? cause.message
+          : "We could not send your enquiry. Please try again.",
+      );
+      setStatus("error");
+    }
   };
 
   return (
@@ -364,7 +396,7 @@ export function RequestQuote({ index = "05" }: RequestQuoteProps) {
                 aria-hidden
               />
               <a
-                href={`tel:${siteConfig.contact.phone}`}
+                href={`tel:${siteConfig.contact.phoneHref}`}
                 className="hover:text-accent"
               >
                 {siteConfig.contact.phone}
@@ -640,21 +672,41 @@ export function RequestQuote({ index = "05" }: RequestQuoteProps) {
               </div>
             ) : null}
 
+            {/* Hidden from people and assistive tech. Bots fill it; we drop those. */}
+            <div className="hidden" aria-hidden>
+              <label htmlFor="company">Company</label>
+              <input
+                id="company"
+                name="company"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                value={honeypot}
+                onChange={(event) => setHoneypot(event.target.value)}
+              />
+            </div>
+
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <button
                 type="submit"
-                className="inline-flex items-center gap-2.5 rounded-xl bg-accent px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-accent/90"
+                disabled={status === "sending"}
+                className="inline-flex items-center gap-2.5 rounded-xl bg-accent px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <ArrowIcon />
-                Send enquiry
+                {status === "sending" ? "Sending..." : "Send enquiry"}
               </button>
 
-              {submitted ? (
-                <p className="text-sm font-medium text-primary">
-                  Thank you, one of our team will call you within one business
-                  day.
-                </p>
-              ) : null}
+              <p aria-live="polite" className="text-sm font-medium">
+                {status === "sent" ? (
+                  <span className="text-primary">
+                    Thank you, one of our team will call you within one business
+                    day.
+                  </span>
+                ) : null}
+                {status === "error" ? (
+                  <span className="text-accent">{sendError}</span>
+                ) : null}
+              </p>
             </div>
           </form>
         </motion.div>

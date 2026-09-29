@@ -42,7 +42,7 @@ export function Footer() {
         </a>
 
         <a
-          href={`tel:${siteConfig.contact.phone}`}
+          href={`tel:${siteConfig.contact.phoneHref}`}
           className="mt-4 font-sans text-base font-semibold tracking-wide text-white/75 transition-colors hover:text-white md:mt-5 md:text-lg"
         >
           {siteConfig.contact.phone}

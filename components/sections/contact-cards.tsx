@@ -15,7 +15,7 @@ const contactCards = [
   {
     label: "Phone number",
     value: siteConfig.contact.phone,
-    href: `tel:${siteConfig.contact.phone}`,
+    href: `tel:${siteConfig.contact.phoneHref}`,
     icon: HiOutlinePhone,
   },
 ] as const;

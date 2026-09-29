@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowIcon } from "@/components/ui/arrow-icon";
 import { slideFromBottomInView, slideFromBottomStagger } from "@/lib/motion";
 
 export function ClaimNumeral() {
@@ -30,13 +28,10 @@ export function ClaimNumeral() {
           <h2 className="mt-2 max-w-[22ch] font-heading text-[clamp(1.5rem,3.2vw,2.25rem)] font-bold uppercase leading-[1.1] tracking-tight text-primary">
             Remote monitoring of lifts
           </h2>
-          <Link
-            href="/contact"
-            className="mt-4 inline-flex items-center gap-2.5 text-sm font-semibold uppercase tracking-wide text-primary transition-colors hover:text-accent"
-          >
-            <ArrowIcon className="text-accent" />
-            Ask about monitoring
-          </Link>
+          <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <span className="size-1.5 rounded-full bg-accent" aria-hidden />
+            Coming soon
+          </p>
         </motion.div>
       </motion.div>
     </section>
