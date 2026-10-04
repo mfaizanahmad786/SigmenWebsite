@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa";
 import { HiOutlineEnvelope, HiOutlinePhone } from "react-icons/hi2";
 import { ArrowIcon } from "@/components/ui/arrow-icon";
 import { ChevronDownIcon } from "@/components/ui/chevron-down-icon";
@@ -17,6 +18,7 @@ import {
   quoteServiceOptions,
 } from "@/constants/quote-form";
 import { siteConfig } from "@/constants/site";
+import { buildWhatsappUrl } from "@/constants/whatsapp";
 import { fadeInInView, headingBlurFadeInView } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
@@ -687,14 +689,26 @@ export function RequestQuote({ index = "05" }: RequestQuoteProps) {
             </div>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className="inline-flex items-center gap-2.5 rounded-xl bg-accent px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                <ArrowIcon />
-                {status === "sending" ? "Sending..." : "Send enquiry"}
-              </button>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <button
+                  type="submit"
+                  disabled={status === "sending"}
+                  className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-accent px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <ArrowIcon />
+                  {status === "sending" ? "Sending..." : "Send enquiry"}
+                </button>
+
+                <a
+                  href={buildWhatsappUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2.5 rounded-xl border border-border px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-primary transition-colors hover:border-primary hover:bg-primary hover:text-white"
+                >
+                  <FaWhatsapp className="size-4 shrink-0" aria-hidden />
+                  Chat on WhatsApp
+                </a>
+              </div>
 
               <p aria-live="polite" className="text-sm font-medium">
                 {status === "sent" ? (

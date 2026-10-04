@@ -23,7 +23,7 @@ export function ClaimNumeral() {
 
         <motion.div variants={slideFromBottomInView}>
           <p className="font-mono text-sm font-bold uppercase tracking-wide text-accent md:text-base">
-            First in Pakistan
+            Introducing for the first time in Pakistan
           </p>
           <h2 className="mt-2 max-w-[22ch] font-heading text-[clamp(1.5rem,3.2vw,2.25rem)] font-bold uppercase leading-[1.1] tracking-tight text-primary">
             Remote monitoring of lifts

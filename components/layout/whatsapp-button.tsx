@@ -1,10 +1,7 @@
 import { FaWhatsapp } from "react-icons/fa";
-import { siteConfig } from "@/constants/site";
+import { buildWhatsappUrl } from "@/constants/whatsapp";
 
-const message =
-  "Hi Sigmen, I would like to enquire about a lift for my building.";
-
-const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(message)}`;
+const whatsappUrl = buildWhatsappUrl();
 
 export function WhatsappButton() {
   return (

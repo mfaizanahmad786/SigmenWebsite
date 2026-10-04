@@ -4,12 +4,12 @@ export const siteConfig = {
     "Reliable, affordable, and safe elevator and lift solutions for homes, offices, and commercial spaces, delivered by trained and certified professionals.",
   url: "https://sigmen.com",
   contact: {
-    phone: "+92 300 5013367",
+    phone: "+92 334 5751969",
     /** Same number without spaces, since a tel: URI should not contain any. */
-    phoneHref: "+923005013367",
+    phoneHref: "+923345751969",
     email: "mysigmen@gmail.com",
     /** Digits only, in international format, as wa.me requires. */
-    whatsapp: "923005013367",
+    whatsapp: "923345751969",
   },
   nav: [
     { label: "Home", href: "/" },
