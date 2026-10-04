@@ -32,10 +32,10 @@ export function Hero() {
                 animate="visible"
               >
                 <Image
-                  src="/images/hero-lobby.jpg"
+                  src="/images/hero-inline-lobby.jpg"
                   alt=""
                   fill
-                  className="object-cover object-[center_55%]"
+                  className="object-cover object-center"
                   sizes="(max-width: 768px) 148px, 244px"
                   priority
                 />
