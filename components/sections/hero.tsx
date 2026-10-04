@@ -70,10 +70,10 @@ export function Hero() {
         >
           <div className="relative aspect-4/5 w-full overflow-hidden rounded-[20px] md:rounded-[24px] lg:aspect-[0.8] lg:max-h-[68vh]">
             <Image
-              src="/images/hero-capsule.jpg"
-              alt="Modern capsule lift travelling up a concrete shaft"
+              src="/images/hero-call-buttons.jpg"
+              alt="Sunlit lift call buttons on a brushed steel panel"
               fill
-              className="object-cover object-[center_62%]"
+              className="object-cover object-center"
               sizes="(max-width: 1024px) 420px, 560px"
               priority
             />
