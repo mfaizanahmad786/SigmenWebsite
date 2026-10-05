@@ -73,10 +73,14 @@ function escapeHtml(value: string) {
 
 export async function POST(request: NextRequest) {
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.ENQUIRY_TO_EMAIL;
+  // Comma-separated, so the team can add recipients without a code change.
+  const to = (process.env.ENQUIRY_TO_EMAIL ?? "")
+    .split(",")
+    .map((address) => address.trim())
+    .filter(Boolean);
   const from = process.env.ENQUIRY_FROM_EMAIL ?? "onboarding@resend.dev";
 
-  if (!apiKey || !to) {
+  if (!apiKey || to.length === 0) {
     console.error(
       "Enquiry not sent: RESEND_API_KEY and ENQUIRY_TO_EMAIL must both be set.",
     );
@@ -145,8 +149,8 @@ export async function POST(request: NextRequest) {
     const resend = new Resend(apiKey);
     const { error } = await resend.emails.send({
       from: `Sigmen Website <${from}>`,
-      to: [to],
-      replyTo: to,
+      to,
+      replyTo: to[0],
       subject: `Lift enquiry from ${name}${city ? ` (${city})` : ""}`,
       html: `<div style="font-family:system-ui,sans-serif;font-size:14px">
   <h2 style="color:#1c1e3f;margin:0 0 4px">New lift enquiry</h2>
