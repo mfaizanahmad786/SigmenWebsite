@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { HiOutlineEnvelope, HiOutlinePhone } from "react-icons/hi2";
 import { ArrowIcon } from "@/components/ui/arrow-icon";
+import { FlagIcon } from "@/components/ui/flag-icon";
 import { ChevronDownIcon } from "@/components/ui/chevron-down-icon";
 import {
   buildingTypeOptions,
@@ -392,18 +393,25 @@ export function RequestQuote({ index = "05" }: RequestQuoteProps) {
             whileInView="visible"
             viewport={{ once: true, amount: 0.4 }}
           >
-            <li className="flex items-center gap-3">
-              <HiOutlinePhone
-                className="size-5 shrink-0 text-primary"
-                aria-hidden
-              />
-              <a
-                href={`tel:${siteConfig.contact.phoneHref}`}
-                className="hover:text-accent"
-              >
-                {siteConfig.contact.phone}
-              </a>
-            </li>
+            {siteConfig.contact.phones.map((phone, index) => (
+              <li key={phone.href} className="flex items-center gap-3">
+                {index === 0 ? (
+                  <HiOutlinePhone
+                    className="size-5 shrink-0 text-primary"
+                    aria-hidden
+                  />
+                ) : (
+                  <span className="size-5 shrink-0" aria-hidden />
+                )}
+                <a
+                  href={`tel:${phone.href}`}
+                  className="flex items-center gap-2.5 hover:text-accent"
+                >
+                  <FlagIcon country={phone.country} />
+                  {phone.display}
+                </a>
+              </li>
+            ))}
             <li className="flex items-center gap-3">
               <HiOutlineEnvelope
                 className="size-5 shrink-0 text-primary"

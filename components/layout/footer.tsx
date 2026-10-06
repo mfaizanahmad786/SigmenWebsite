@@ -1,8 +1,5 @@
-import {
-  FaInstagram,
-  FaLinkedinIn,
-  FaTiktok,
-} from "react-icons/fa6";
+import { FaInstagram, FaLinkedinIn, FaTiktok } from "react-icons/fa6";
+import { FlagIcon } from "@/components/ui/flag-icon";
 import { siteConfig } from "@/constants/site";
 
 const socialIcons = {
@@ -41,12 +38,18 @@ export function Footer() {
           {siteConfig.contact.email}
         </a>
 
-        <a
-          href={`tel:${siteConfig.contact.phoneHref}`}
-          className="mt-4 font-sans text-base font-semibold tracking-wide text-white/75 transition-colors hover:text-white md:mt-5 md:text-lg"
-        >
-          {siteConfig.contact.phone}
-        </a>
+        <div className="mt-4 flex flex-col gap-2 md:mt-5">
+          {siteConfig.contact.phones.map((phone) => (
+            <a
+              key={phone.href}
+              href={`tel:${phone.href}`}
+              className="flex items-center gap-2.5 font-sans text-base font-semibold tracking-wide text-white/75 transition-colors hover:text-white md:text-lg"
+            >
+              <FlagIcon country={phone.country} />
+              {phone.display}
+            </a>
+          ))}
+        </div>
       </div>
     </footer>
   );
