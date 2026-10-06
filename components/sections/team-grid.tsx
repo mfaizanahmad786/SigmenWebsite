@@ -37,7 +37,7 @@ function MemberPortrait({ member }: { member: TeamMember }) {
 function MemberCard({ member }: { member: TeamMember }) {
   return (
     <motion.article
-      className="group flex flex-col"
+      className="group flex w-full flex-col sm:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-6rem)/4)]"
       variants={slideFromBottomInView}
     >
       <div className="relative aspect-4/5 w-full overflow-hidden rounded-[16px] border border-border md:rounded-[18px]">
@@ -103,10 +103,10 @@ function MemberSection({
           </motion.h2>
         </div>
 
-        {/* Four columns in both sections so the cards stay the same size,
-            rather than stretching to fill a shorter row. */}
+        {/* Flex rather than grid: cards keep the width of a four-up row, and
+            a row with fewer than four centres instead of hugging the left. */}
         <motion.div
-          className="mt-12 grid gap-8 sm:grid-cols-2 md:mt-16 md:gap-x-6 md:gap-y-12 lg:mt-20 lg:grid-cols-4 lg:gap-x-8"
+          className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-10 md:mt-16 md:gap-y-12 lg:mt-20"
           variants={slideFromBottomStagger}
           initial="hidden"
           whileInView="visible"

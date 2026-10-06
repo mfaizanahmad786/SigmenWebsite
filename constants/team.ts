@@ -42,7 +42,7 @@ export const leadership: readonly TeamMember[] = [
 
 export const generalMembers: readonly TeamMember[] = [
   {
-    name: "Emaan Munir Khan",
+    name: "Eeman Munir Khan",
     initials: "EK",
     title: "Media Manager",
   },
