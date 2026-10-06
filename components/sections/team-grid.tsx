@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { teamMembers, type TeamMember } from "@/constants/team";
+import { generalMembers, leadership, type TeamMember } from "@/constants/team";
 import {
   headingBlurFadeInView,
   slideFromBottomInView,
@@ -45,16 +45,18 @@ function MemberCard({ member }: { member: TeamMember }) {
       </div>
 
       <p className="mt-5 font-mono text-sm font-bold uppercase tracking-wide text-accent">
-        {member.abbreviation}
+        {member.title}
       </p>
 
       <h3 className="mt-1.5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-primary md:text-xl">
         {member.name}
       </h3>
 
-      <p className="mt-1.5 text-sm leading-6 text-muted-foreground">
-        {member.role}
-      </p>
+      {member.role ? (
+        <p className="mt-1.5 text-sm leading-6 text-muted-foreground">
+          {member.role}
+        </p>
+      ) : null}
 
       {member.bio ? (
         <p className="mt-3 text-sm leading-6 text-muted-foreground">
@@ -65,14 +67,29 @@ function MemberCard({ member }: { member: TeamMember }) {
   );
 }
 
-export function TeamGrid() {
+type MemberSectionProps = {
+  /** Eyebrow number, which runs in page order. */
+  index: string;
+  label: string;
+  heading: string;
+  members: readonly TeamMember[];
+  className?: string;
+};
+
+function MemberSection({
+  index,
+  label,
+  heading,
+  members,
+  className,
+}: MemberSectionProps) {
   return (
-    <section className="bg-background py-20 md:py-28 lg:py-32">
+    <section className={className}>
       <div className="mx-auto max-w-max px-5 md:px-8 lg:px-[30px]">
         <div className="mx-auto max-w-[720px] text-center">
           <p className="font-mono text-xl font-bold uppercase tracking-wide">
-            <span className="text-accent">01.</span>{" "}
-            <span className="text-primary">Leadership</span>
+            <span className="text-accent">{index}.</span>{" "}
+            <span className="text-primary">{label}</span>
           </p>
 
           <motion.h2
@@ -82,10 +99,12 @@ export function TeamGrid() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
           >
-            The People Behind Sigmen
+            {heading}
           </motion.h2>
         </div>
 
+        {/* Four columns in both sections so the cards stay the same size,
+            rather than stretching to fill a shorter row. */}
         <motion.div
           className="mt-12 grid gap-8 sm:grid-cols-2 md:mt-16 md:gap-x-6 md:gap-y-12 lg:mt-20 lg:grid-cols-4 lg:gap-x-8"
           variants={slideFromBottomStagger}
@@ -93,11 +112,33 @@ export function TeamGrid() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {teamMembers.map((member) => (
+          {members.map((member) => (
             <MemberCard key={member.name} member={member} />
           ))}
         </motion.div>
       </div>
     </section>
+  );
+}
+
+export function TeamGrid() {
+  return (
+    <>
+      <MemberSection
+        index="01"
+        label="Leadership"
+        heading="The People Behind Sigmen"
+        members={leadership}
+        className="bg-background pt-20 pb-14 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24"
+      />
+
+      <MemberSection
+        index="02"
+        label="General members"
+        heading="The Wider Team"
+        members={generalMembers}
+        className="bg-background pb-20 md:pb-28 lg:pb-32"
+      />
+    </>
   );
 }

@@ -26,8 +26,8 @@ export default function TeamPage() {
       <main>
         <TeamGrid />
         <MarqueeDivider />
-        <Testimonials index="02" />
-        <RequestQuote index="03" />
+        <Testimonials index="03" />
+        <RequestQuote index="04" />
       </main>
       <Footer />
     </MotionConfig>
