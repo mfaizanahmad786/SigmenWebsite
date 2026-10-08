@@ -11,7 +11,7 @@ import { Stats } from "@/components/sections/stats";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Lift and elevator services from Sigmen: residential installation, 24/7 emergency repairs, commercial systems, and modernization of existing lifts.",
+    "Lift and elevator services from Sigmen: residential installation, 24/7 emergency repairs, commercial systems and modernization of existing lifts.",
 };
 
 export default function ServicesPage() {

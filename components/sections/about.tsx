@@ -44,9 +44,10 @@ export function About() {
             viewport={{ once: true, amount: 0.5 }}
           >
             At Sigmen, we are dedicated to providing reliable and high-quality
-            elevator and lift services to homes, businesses, and industries. With
-            years of experience in the field, our team of certified technicians
-            ensures every job is completed safely and efficiently.
+            elevator and lift services to homes, businesses and industries. With
+            years of experience in the field, our team of certified Engineers
+            and technicians ensures every job is completed safely,
+            professionally and efficiently.
           </motion.p>
 
           <div>

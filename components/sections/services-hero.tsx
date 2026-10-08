@@ -37,8 +37,9 @@ export function ServicesHero() {
           initial="hidden"
           animate="visible"
         >
-          Installation, repair, servicing and modernization for homes, offices
-          and commercial buildings, delivered by certified lift technicians.
+          Installations, modernization, repairs and preventive maintenance for
+          homes, offices and commercial buildings, delivered by certified lift
+          Engineers and Technicians.
         </motion.p>
       </div>
     </section>

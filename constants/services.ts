@@ -18,14 +18,15 @@ export const services = [
     slug: "installation",
     title: "Installation",
     description:
-      "Complete elevator and lift installation for homes, offices, and commercial buildings, built to safety and code compliance.",
+      "Complete elevator or lift installation for homes, offices and commercial buildings, built with safety and code compliance.",
     summary:
-      "A lift has to fit the building it goes into, not the other way round. We survey the shaft, size the system to the traffic the building actually sees, and install it with as little disruption to the people using the place as we can manage.",
+      "A lift has to fit the building it goes into, not the other way around. We survey the shaft size required, the number of floors, the frequency of use and the traffic the building actually sees, then install it with as little disruption to the people using the place as we can manage.",
     highlights: [
       "Shaft survey and feasibility check before you commit",
-      "Machine room and machine-room-less options",
-      "Passenger, goods and home lifts",
-      "Safety testing and compliance paperwork on handover",
+      "Machine room (MR) and machine room less (MRL) options",
+      "Passenger, Cargo and Home lifts",
+      "Safety testing and compliance paperwork/keys on handover",
+      "Lift basic and rescue operational training for staff and users",
     ],
     image: "/images/service-residential.jpg",
   },
@@ -34,14 +35,16 @@ export const services = [
     slug: "maintenance",
     title: "Maintenance",
     description:
-      "Planned servicing contracts that keep lifts running smoothly and catch faults before they become breakdowns.",
+      "Planned Preventive Maintenance contracts that keep lifts running smoothly and catch faults before they become breakdowns.",
     summary:
-      "Most lift failures give warning long before they strand anyone. A planned visit schedule catches wear while it is still cheap to fix, and it keeps the paperwork in order for the buildings that need to show it.",
+      "Most lift failures give warning long before they strand anyone. A planned visit schedule catches wear while it is still cheap to fix and it keeps the paperwork in order for the buildings that need to show it.",
     highlights: [
       "Fixed visit schedules, monthly or quarterly",
-      "Ropes, brakes, doors and controls checked each visit",
+      "Ropes, brakes, doors, oil, guides and mechanical parts checked on each visit",
+      "All electrical safeties, alarms, intercom and lift operation checked",
       "Out-of-hours servicing to avoid downtime",
       "Written service record after every call",
+      "Overall status of the lift reported, with any parts needing replacement",
     ],
     image: "/images/service-commercial.jpg",
   },
@@ -50,25 +53,26 @@ export const services = [
     slug: "modernization",
     title: "Modernization",
     description:
-      "Control upgrades, cabin refurbishment, and energy efficiency improvements that renew an ageing lift.",
+      "Control upgradation, cabin refurbishment and energy efficiency improvements that renew an ageing lift.",
     summary:
-      "An ageing lift rarely needs replacing outright. Upgrading the controller, drive and cabin usually costs a fraction of a new installation, and it buys back reliability, ride quality and running cost without rebuilding the shaft.",
+      "An ageing lift rarely needs replacing outright. Upgrading the controller, drive and associated parts usually costs a fraction of a new installation and it buys back reliability, ride quality and running cost without rebuilding or replacing the complete shaft material.",
     highlights: [
-      "Controller and drive upgrades for older systems",
-      "Cabin refurbishment and new door operators",
-      "Energy efficiency and standby power improvements",
+      "Main controller and motor drive upgrades for older systems",
+      "COP and LOP with a new door operator if required",
+      "Energy efficiency with an emergency rescue system, not fitted to older lifts",
       "Phased work so the lift stays in service where possible",
+      "Modernization of this kind can extend a lift's life by up to 75%",
     ],
     image: "/images/service-modernization-car.jpg",
   },
   {
     id: "04",
     slug: "repair",
-    title: "Repair",
+    title: "Repair / Rescue",
     description:
-      "Rapid response for breakdowns, entrapments, and safety faults, with technicians on call around the clock.",
+      "Rapid response for breakdowns, entrapments and safety faults with technicians on call around the clock.",
     summary:
-      "A stopped lift is an access problem and, if someone is inside it, a safety one. Our callout line is staffed around the clock, and our technicians carry the parts that account for most faults so the majority of visits end in a fix rather than a follow-up.",
+      "A stopped lift is an access problem and, if someone is inside it, a safety issue. Our callout line is staffed around the clock and our technicians carry the parts that account for most faults, so the majority of visits end in a fix rather than a follow-up.",
     highlights: [
       "Round-the-clock callout, including weekends",
       "Entrapment release as the first priority",
@@ -84,12 +88,14 @@ export const services = [
     description:
       "Independent safety inspections and condition reports for lifts already in service.",
     summary:
-      "Whether you are taking over a building, renewing insurance or simply want a second opinion, an inspection tells you what condition the lift is really in. You get a plain report of what is sound, what is wearing and what needs attention first.",
+      "Whether you are taking over a building, renewing insurance, want a second opinion, need a third party to verify that a new installation has every safety fitted to lift standards or want a pre-installation check, an inspection tells you what condition the lift is really in. You get a plain report of what is sound, what is wearing and what needs attention first.",
     highlights: [
-      "Full safety circuit and brake testing",
-      "Condition report on ropes, doors and controls",
+      "Full safety circuits, load of cabin against counterweight and brake testing",
+      "Condition report on ropes, door tracks and all mechanical parts",
+      "Condition report on the control panel, motor, ARD and all other electrical parts",
+      "Earthing of all electrical parts, cabin and motor base verified for secure connection",
       "Findings ranked by urgency, not just listed",
-      "Handover inspections for building purchases",
+      "Handover inspections for any of the above purposes",
     ],
     image: "/images/service-inspection.jpg",
   },
@@ -98,14 +104,15 @@ export const services = [
     slug: "consultation",
     title: "Consultation",
     description:
-      "Specification and design advice for architects, developers, and owners planning a lift.",
+      "Specification and design advice for architects, developers and owners planning a lift.",
     summary:
-      "The cheapest time to get a lift right is before anything is built. Bring us the drawings and we will advise on shaft sizing, traffic capacity and system type, so the specification you tender is one that will actually work in the finished building.",
+      "The cheapest time to get a lift right is before anything is built. Bring us the drawings and we will advise on shaft sizing, traffic capacity and system type, including the correct cabin and door sizes for the passenger capacity, so the specification you tender is one that will actually work in the finished building with every safety and standard it needs.",
     highlights: [
       "Shaft sizing and traffic analysis from drawings",
       "System type and capacity recommendations",
       "Budget guidance before you go to tender",
       "Review of specifications you have already been given",
+      "Finding the right place for the lift, rather than wherever space happens to be free",
     ],
     image: "/images/service-consultation.jpg",
   },

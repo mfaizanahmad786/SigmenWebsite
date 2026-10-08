@@ -44,6 +44,7 @@ type FormValues = {
   machineRoomHeight: string;
   floorHeight: string;
   travelHeight: string;
+  overheadHeight: string;
   origin: string;
   liftType: string;
 };
@@ -75,6 +76,7 @@ const initialValues: FormValues = {
   machineRoomHeight: "",
   floorHeight: "",
   travelHeight: "",
+  overheadHeight: "",
   origin: "",
   liftType: "",
 };
@@ -381,8 +383,7 @@ export function RequestQuote({ index = "05" }: RequestQuoteProps) {
               viewport={{ once: true, amount: 0.45 }}
             >
               Tell us the basics and our team will call you back to work out the
-              rest. No site measurements needed yet, and nothing here is
-              binding.
+              rest. No site measurements needed yet and nothing here is binding.
             </motion.p>
           </div>
 
@@ -663,6 +664,14 @@ export function RequestQuote({ index = "05" }: RequestQuoteProps) {
                     min={0}
                     value={values.travelHeight}
                     onChange={updateField("travelHeight")}
+                  />
+                  <TextField
+                    id="overheadHeight"
+                    label="Top floor overhead height (mm)"
+                    type="number"
+                    min={0}
+                    value={values.overheadHeight}
+                    onChange={updateField("overheadHeight")}
                   />
                   <SelectField
                     id="origin"

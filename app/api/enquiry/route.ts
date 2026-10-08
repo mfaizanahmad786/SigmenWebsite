@@ -27,6 +27,7 @@ const FIELDS = [
   ["machineRoomHeight", "Machine room height (mm)"],
   ["floorHeight", "Floor-to-floor height (mm)"],
   ["travelHeight", "Total travel height (mm)"],
+  ["overheadHeight", "Top floor overhead height (mm)"],
   ["origin", "Lift origin"],
   ["liftType", "Lift type"],
 ] as const;

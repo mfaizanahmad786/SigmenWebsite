@@ -1,11 +1,10 @@
-import { FaInstagram, FaLinkedinIn, FaTiktok } from "react-icons/fa6";
+import { FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import { FlagIcon } from "@/components/ui/flag-icon";
 import { siteConfig } from "@/constants/site";
 
 const socialIcons = {
-  tiktok: FaTiktok,
-  linkedin: FaLinkedinIn,
   instagram: FaInstagram,
+  linkedin: FaLinkedinIn,
 } as const;
 
 export function Footer() {

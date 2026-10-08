@@ -12,7 +12,7 @@ import { Testimonials } from "@/components/sections/testimonials";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Sigmen — certified elevator and lift professionals delivering reliable, affordable, and safe solutions for homes, offices, and commercial spaces.",
+    "Learn about Sigmen, certified elevator and lift professionals delivering reliable, affordable and safe solutions for homes, offices and commercial spaces.",
 };
 
 export default function AboutPage() {

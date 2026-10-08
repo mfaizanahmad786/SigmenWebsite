@@ -55,9 +55,9 @@ export function Career() {
                 Our Mission
               </h3>
               <p className="mt-3 max-w-[540px] text-base leading-7 text-muted-foreground md:text-lg md:leading-8">
-                Our mission is to deliver safe, reliable, and lasting elevator
+                Our mission is to deliver safe, reliable and lasting elevator
                 solutions that elevate everyday spaces and make a lasting
-                impact. We combine certified expertise, careful craftsmanship,
+                impact. We combine certified expertise, careful craftsmanship
                 and client-centered service to complete every job with
                 excellence.
               </p>

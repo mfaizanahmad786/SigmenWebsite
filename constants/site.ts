@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Sigmen",
   description:
-    "Reliable, affordable, and safe elevator and lift solutions for homes, offices, and commercial spaces, delivered by trained and certified professionals.",
+    "Reliable, affordable and safe elevator/lift solutions for homes, offices and commercial spaces, delivered by trained and certified professionals.",
   url: "https://sigmen.com",
   contact: {
     /** `href` repeats the number without spaces, since a tel: URI cannot contain any. */
@@ -35,8 +35,12 @@ export const siteConfig = {
     { label: "Contact", href: "/contact" },
   ],
   social: [
-    { label: "TikTok", href: "https://tiktok.com", icon: "tiktok" },
-    { label: "Instagram", href: "https://instagram.com", icon: "instagram" },
-    { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/sigmen.inc/",
+      icon: "instagram" as const,
+    },
+    // Uncomment once the company LinkedIn page exists, and set the real href.
+    // { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" as const },
   ],
 } as const;

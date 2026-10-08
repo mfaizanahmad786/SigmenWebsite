@@ -11,7 +11,7 @@ import { Testimonials } from "@/components/sections/testimonials";
 export const metadata: Metadata = {
   title: "Team",
   description:
-    "Meet the leadership team at Sigmen: the people responsible for our lift installation, maintenance, and modernization work.",
+    "Meet the leadership team at Sigmen: the people responsible for our lift installation, maintenance and modernization work.",
 };
 
 export default function TeamPage() {

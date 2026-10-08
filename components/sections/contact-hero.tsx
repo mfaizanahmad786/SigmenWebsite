@@ -37,7 +37,7 @@ export function ContactHero() {
           initial="hidden"
           animate="visible"
         >
-          Reach out for installations, repairs, or maintenance — our certified
+          Reach out for installations, repairs or maintenance. Our certified
           team is ready to deliver safe, reliable elevator solutions.
         </motion.p>
       </div>

@@ -61,7 +61,7 @@ export const liftOriginOptions = [
   { value: "", label: "Select one" },
   { value: "China", label: "China" },
   { value: "Europe", label: "Europe" },
-  { value: "Partially imported", label: "Partially imported" },
+  { value: "Partially imported (90%)", label: "Partially imported (90%)" },
 ] as const;
 
 export const liftTypeOptions = [

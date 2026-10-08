@@ -8,7 +8,7 @@ import { RequestQuote } from "@/components/sections/request-quote";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Sigmen for elevator installation, repair, and maintenance quotes. Reach us by phone, email, or our online request form.",
+    "Contact Sigmen for elevator installation, repair and maintenance quotes. Reach us by phone, email or our online request form.",
 };
 
 export default function ContactPage() {
@@ -28,4 +28,3 @@ export default function ContactPage() {
     </>
   );
 }
-

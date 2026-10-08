@@ -40,8 +40,8 @@ export function Services() {
         style={{ zIndex: featured.length + 1 }}
       >
         <p className="text-sm leading-6 text-muted-foreground md:text-base">
-          We also handle inspections and consultation for lifts at the planning
-          stage.
+          We also handle consultations at the planning stage, inspections of
+          material and post-installation quality for human safety.
         </p>
         <Link
           href="/services"
