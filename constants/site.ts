@@ -17,7 +17,7 @@ export const siteConfig = {
         href: "+12177907628",
       },
     ],
-    email: "mysigmen@gmail.com",
+    email: "info@sigmen.com",
     /** Digits only, in international format, as wa.me requires. */
     whatsapp: "923345751969",
   },
@@ -26,6 +26,7 @@ export const siteConfig = {
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Team", href: "/team" },
+    { label: "Contact", href: "/contact" },
   ],
   footerLinks: [
     { label: "Home", href: "/" },
